@@ -4,13 +4,14 @@ import org.eparedes.poointerfaces.modelo.Cliente;
 import org.eparedes.poointerfaces.modelo.Producto;
 import org.eparedes.poointerfaces.repositorio.AbstractaListRepositorio;
 import org.eparedes.poointerfaces.repositorio.Direccion;
+import org.eparedes.poointerfaces.repositorio.excepciones.LecturaAccesoDatoException;
 
 import java.util.ArrayList;
 import java.util.List;
 
 public class ProductoListRepositorio extends AbstractaListRepositorio<Producto> {
     @Override
-    public void editar(Producto producto) {
+    public void editar(Producto producto) throws LecturaAccesoDatoException {
         Producto p = porId(producto.getId());
         p.setDescripcion(producto.getDescripcion());
         p.setPrecio(producto.getPrecio());
